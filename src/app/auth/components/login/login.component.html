@@ -1,0 +1,29 @@
+<!-- <app-header></app-header> -->
+
+<div class="body">
+  <div class="login">
+    <!-- FORMULARIO -->
+    <form [formGroup]="form" (ngSubmit)="ingresar()">
+      <img src="../../../../assets/icons/usuario.png" alt="usuario" width="33%">
+      <h1>Login</h1>
+
+      <mat-form-field appearance="outline" class="ancho">
+        <mat-label>Usuario</mat-label>
+        <input matInput placeholder="Usuario" autocomplete="off" formControlName="usuario">
+        <mat-icon matSuffix>person</mat-icon>
+        <!-- <mat-hint>Coloca tu usuario</mat-hint> -->
+      </mat-form-field>
+<br>
+      <mat-form-field appearance="outline" class="ancho">
+        <mat-label>Contraseña</mat-label>
+        <input type="password" matInput placeholder="Contraseña" autocomplete="off" formControlName="password">
+        <mat-icon matSuffix>key</mat-icon>
+        <!-- <mat-hint>Coloca tu contraseña</mat-hint> -->
+      </mat-form-field>
+      <br>
+      <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid" class="ancho button" routerLink="/backoffice" routerLinkActive="router-link-active" >Ingresar</button>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

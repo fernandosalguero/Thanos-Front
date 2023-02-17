@@ -1,0 +1,68 @@
+<mat-toolbar class="mat-elevation-z8">
+  <button
+    mat-icon-button
+    *ngIf="sidenav.mode === 'over'"
+    (click)="sidenav.toggle()"
+  >
+    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+  </button>
+  Thanos
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+    <img
+      class="avatar mat-elevation-z8"
+      src="https://source.unsplash.com/c_GmwfHBDzk/200x200"
+    />
+
+    <h4 class="name">nombre del usuario</h4>
+    <p class="designation">Lider</p>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button" routerLink="/lider/dashboard">
+      <mat-icon>home</mat-icon>
+      <span>Inicio</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/lider/equipo">
+      <mat-icon>person</mat-icon>
+      <span>Equipo</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/lider/monitoreo">
+      <mat-icon>token</mat-icon>
+      <span>Monitoreo</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/lider/avaya">
+      <mat-icon>view_timeline</mat-icon>
+      <span>Avaya</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/lider/casosMalDerivados">
+      <mat-icon>check_box</mat-icon>
+      <span>Mal Derivados</span>
+    </button>
+
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button" routerLink="/lider/contacto">
+      <mat-icon>call</mat-icon>
+      <span>Ayuda</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/help">
+      <mat-icon>output</mat-icon>
+      <span>Salir</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+

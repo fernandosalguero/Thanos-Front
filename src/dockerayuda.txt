@@ -1,0 +1,4 @@
+docker build -t thanosfront .
+docker images
+docker run -d -it -p 80:80 thanosfront
+docker ps -a

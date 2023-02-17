@@ -1,0 +1,74 @@
+<mat-toolbar class="mat-elevation-z8">
+  <button
+    mat-icon-button
+    *ngIf="sidenav.mode === 'over'"
+    (click)="sidenav.toggle()"
+  >
+    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+  </button>
+  Thanos
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+    <img
+      class="avatar mat-elevation-z8"
+      src="https://source.unsplash.com/c_GmwfHBDzk/200x200"
+    />
+
+    <h4 class="name">nombre del usuario</h4>
+    <p class="designation">Super Admin</p>
+
+
+
+    <mat-divider></mat-divider>
+
+
+
+    <button mat-button class="menu-button" routerLink="/sa/dashboard">
+      <mat-icon>home</mat-icon>
+      <span>Inicio</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/sa/altausuario">
+      <mat-icon>add</mat-icon>
+      <span>Alta</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/sa/listadousuario">
+      <mat-icon>manage_search</mat-icon>
+      <span>Listado</span>
+    </button>
+
+
+
+
+    <mat-divider></mat-divider>
+
+
+
+    <button mat-button class="menu-button" routerLink="/sa/sugerencias">
+      <mat-icon>transcribe</mat-icon>
+      <span>Sugerencias</span>
+    </button>
+
+    <mat-divider></mat-divider>
+
+      <button mat-button class="menu-button" routerLink="/help">
+        <mat-icon>output</mat-icon>
+        <span>Salir</span>
+      </button>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="content mat-elevation-z8">
+        <router-outlet></router-outlet>
+      </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
