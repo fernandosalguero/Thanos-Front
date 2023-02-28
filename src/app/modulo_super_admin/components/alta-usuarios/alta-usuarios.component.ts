@@ -29,16 +29,16 @@ export class AltaUsuariosComponent {
   onSubmit(){
     console.log(this.frmAltaAgente.value); 
 
-    this.altaService.altaAgente(this.frmAltaAgente.value)
-    .subscribe( resp => {
-      // console.log(this.frmAltaAgente.value);        
-      console.log('usuario creado')
-      console.log(resp);
-    }, (err) => console.warn(err) )
+    // this.altaService.altaAgente(this.frmAltaAgente.value)
+    // .subscribe( resp => {
+    //   // console.log(this.frmAltaAgente.value);        
+    //   console.log('usuario creado')
+    //   console.log(resp);
+    // }, (err) => console.warn(err) )
 
 
-    //redireccionamos al login
-    this.router.navigate(['/auth/login'])
+    // //redireccionamos al login
+    // this.router.navigate(['/auth/login'])
 
     
   }
