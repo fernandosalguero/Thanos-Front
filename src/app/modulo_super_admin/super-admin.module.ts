@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SuperAdminRoutingModule } from './super-admin-routing.module';
 import { AltaUsuariosComponent } from './components/alta-usuarios/alta-usuarios.component';
@@ -21,7 +22,9 @@ import { SugerenciasRecibidasComponent } from './components/sugerencias-recibida
   imports: [
     CommonModule,
     SuperAdminRoutingModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SuperAdminModule { }
