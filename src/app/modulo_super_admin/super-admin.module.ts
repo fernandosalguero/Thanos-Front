@@ -9,7 +9,7 @@ import { HomeComponentSA } from './components/home/home.component';
 import { AngularMaterialModule } from '../shared/angular-material/angular-material.module';
 import { DashboardSAComponent } from './components/dashboard-sa/dashboard-sa.component';
 import { SugerenciasRecibidasComponent } from './components/sugerencias-recibidas/sugerencias-recibidas.component';
-
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import { SugerenciasRecibidasComponent } from './components/sugerencias-recibida
     SuperAdminRoutingModule,
     AngularMaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule
   ]
 })
 export class SuperAdminModule { }

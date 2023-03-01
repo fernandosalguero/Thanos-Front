@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AltaUsuarioService } from '../../service/alta-usuario.service';
 
 
@@ -24,6 +25,8 @@ export class AltaUsuariosComponent {
     private formBuilder: FormBuilder,
     private altaService: AltaUsuarioService,
     private router: Router,
+    private toast: ToastrService
+
   ) {}
 
   onSubmit(){
@@ -34,7 +37,8 @@ export class AltaUsuariosComponent {
       console.log('FUNCION ONSUBMIT',this.frmAltaAgente.value);        
       console.log('usuario creado')
       console.log(resp);
-    }, (err) => console.warn(err) )    
+    }, (err) => this.toast.error(`${err}`, 'Thanos'))    
   }
 
 }
+
