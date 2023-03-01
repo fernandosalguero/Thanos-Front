@@ -13,9 +13,9 @@ export class AltaUsuariosComponent {
 
   frmAltaAgente = this.formBuilder.group({
     dni: ['', Validators.required],
-    password: ['', Validators.required],
+    contraseña: ['', Validators.required],
     rol: ['', Validators.required],
-    lider: ['', Validators.required],
+    lider: [''],
     jefe: ['', Validators.required],
   })
 
@@ -29,18 +29,12 @@ export class AltaUsuariosComponent {
   onSubmit(){
     console.log(this.frmAltaAgente.value); 
 
-    // this.altaService.altaAgente(this.frmAltaAgente.value)
-    // .subscribe( resp => {
-    //   // console.log(this.frmAltaAgente.value);        
-    //   console.log('usuario creado')
-    //   console.log(resp);
-    // }, (err) => console.warn(err) )
-
-
-    // //redireccionamos al login
-    // this.router.navigate(['/auth/login'])
-
-    
+    this.altaService.altaAgente(this.frmAltaAgente.value)
+    .subscribe( resp => {
+      console.log('FUNCION ONSUBMIT',this.frmAltaAgente.value);        
+      console.log('usuario creado')
+      console.log(resp);
+    }, (err) => console.warn(err) )    
   }
 
 }
