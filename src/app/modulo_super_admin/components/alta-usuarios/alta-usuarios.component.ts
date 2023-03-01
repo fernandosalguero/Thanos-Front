@@ -18,7 +18,7 @@ export class AltaUsuariosComponent {
     lider: [''],
     jefe: ['', Validators.required],
   })
-
+  
 
   constructor(
     private formBuilder: FormBuilder,
