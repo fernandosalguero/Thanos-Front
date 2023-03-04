@@ -3,7 +3,7 @@
 <div class="body">
   <div class="login">
     <!-- FORMULARIO -->
-    <form [formGroup]="form" (ngSubmit)="ingresar()">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
       <img src="../../../../assets/icons/usuario.png" alt="usuario" width="33%">
       <h1>Login</h1>
 
@@ -21,7 +21,7 @@
         <!-- <mat-hint>Coloca tu contraseña</mat-hint> -->
       </mat-form-field>
       <br>
-      <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid" class="ancho button" routerLink="/backoffice" routerLinkActive="router-link-active" >Ingresar</button>
+      <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid" class="ancho button" routerLink="/backoffice" routerLinkActive="router-link-active" >Ingresar</button>
     </form>
   </div>
 </div>
