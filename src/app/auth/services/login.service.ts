@@ -14,6 +14,6 @@ export class LoginService {
 
   loginUsuario(loginForm: LoginInterface) {
     // console.log('estamos conectados al servicio - login');
-    return this.http.post(`${ base_url }/alta-usuarios`, loginForm);
+    return this.http.post(`${ base_url }/auth/login`, loginForm);
   }
 }

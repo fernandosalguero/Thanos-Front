@@ -14,7 +14,7 @@ export class AltaUsuarioService {
   constructor(private httpClient: HttpClient) { }
 
   altaAgente(frmAltaAgente: any) {
-    return this.httpClient.post(`${ base_url}/alta-usuarios`, frmAltaAgente);
+    return this.httpClient.post(`${ base_url}/auth/register`, frmAltaAgente);
   }
 
   // TODO: Necesitamos ver la URL que hace mach con el backend para poder asignarla a la línea 17

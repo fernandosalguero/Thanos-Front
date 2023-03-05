@@ -14,7 +14,7 @@ export class AltaUsuariosComponent {
 
   frmAltaAgente = this.formBuilder.group({
     dni: ['', Validators.required],
-    contraseña: ['', Validators.required],
+    password: ['', Validators.required],
     rol: ['', Validators.required],
     lider: [''],
     jefe: ['', Validators.required],
