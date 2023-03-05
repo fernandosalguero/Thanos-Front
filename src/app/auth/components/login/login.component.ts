@@ -32,7 +32,7 @@ export class LoginComponent {
     // console.log('Tomamos los datos del formulario', this.loginForm.value);
     this.loginService.loginUsuario(this.loginForm.value)
     .subscribe(resp => {
-      console.log(resp);
+      // console.log(resp);
 
       // almacenamos en el local Storage el roll del usuario para proteger las rutas
       this.dataHttp = resp;
@@ -60,7 +60,7 @@ export class LoginComponent {
       }
 
     }, (err) => {
-      console.log('mensaje de error del error', err.error.message);
+      // console.log('mensaje de error del error', err.error.message);
       Swal.fire('Error', err.error.message, 'error');
       
     })

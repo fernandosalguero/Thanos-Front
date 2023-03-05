@@ -30,13 +30,10 @@ export class AltaUsuariosComponent {
   ) {}
 
   onSubmit(){
-    console.log(this.frmAltaAgente.value); 
-
+    console.log('BOTON ON SUBMIT DE ALTA USUARIOS',this.frmAltaAgente.value); 
     this.altaService.altaAgente(this.frmAltaAgente.value)
     .subscribe( resp => {
-      console.log('FUNCION ONSUBMIT',this.frmAltaAgente.value);        
-      console.log('usuario creado')
-      console.log(resp);
+      console.log('RESPUESTA DEL SERVIDOR', resp);
     }, (err) => this.toast.error(`${err}`, 'Thanos'))    
   }
 
