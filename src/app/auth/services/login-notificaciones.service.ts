@@ -42,7 +42,7 @@ export class LoginNotificacionesService {
       title: 'Hola Lider',
       showConfirmButton: false,
       timer: 1500
-    })
+    }) 
    }
   bienvenidoBO(){ 
     Swal.fire({
