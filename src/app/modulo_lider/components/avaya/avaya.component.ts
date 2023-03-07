@@ -34,7 +34,7 @@ export class AvayaComponent {
       })
 
       this.avayaUpload.uploadJson(this.convertJson).subscribe(resp => {
-        console.error('enviamos al servidor', resp);
+        console.warn('enviamos al servidor', resp);
       }, (err) => this.toast.error(`${err}`, 'Thanos'))
     }
   }
