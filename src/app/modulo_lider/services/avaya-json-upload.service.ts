@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environment/environment';
-import { UploadSCVInterface } from '../interface/uploadCSV.interface';
+
 
 const base_url = environment.base_url;
 
