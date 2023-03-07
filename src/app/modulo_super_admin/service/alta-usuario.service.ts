@@ -17,7 +17,7 @@ export class AltaUsuarioService {
     return this.httpClient.post(`${ base_url}/auth/register`, frmAltaAgente);
   }
 
-  // TODO: Necesitamos ver la URL que hace mach con el backend para poder asignarla a la línea 17
+
 
 } 
 

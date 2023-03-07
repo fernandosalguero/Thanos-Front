@@ -10,7 +10,7 @@ import { MonitoreoComponent } from './components/monitoreo/monitoreo.component';
 import { AvayaComponent } from './components/avaya/avaya.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { CasosMalDerivadosLiderComponent } from './components/casos-mal-derivados-lider/casos-mal-derivados-lider.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,8 @@ import { CasosMalDerivadosLiderComponent } from './components/casos-mal-derivado
   imports: [
     CommonModule,
     LiderRoutingModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class LiderModule { }
