@@ -1,44 +1,56 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import *  as XLSX from 'xlsx'
 import { AvayaJsonUploadService } from '../../services/avaya-json-upload.service';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Papa } from 'ngx-papaparse';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environment/environment';
 
+const base_url = environment.base_url;
 @Component({
   selector: 'app-avaya',
   templateUrl: './avaya.component.html',
   styleUrls: ['./avaya.component.css']
 })
+
 export class AvayaComponent {
+  fileToUpload!: File;
+  successMessage!: string;
+  errorMessage!: string;
 
-  convertJson!: any;
-
-  constructor(private avayaUpload: AvayaJsonUploadService,
+  constructor(
+    private formBuilder: FormBuilder,
+    private avayaUpload: AvayaJsonUploadService,
     private toast: ToastrService,
-    private formBuilder: FormBuilder,) { }
+    private papa: Papa,
+    private http: HttpClient,
+    ){ }
 
-
-  fileUpload(event: any) {
-    // console.log(event.target.files);
-    const selectedFile = event.target.files[0];
-    const fileReader = new FileReader();
-    fileReader.readAsBinaryString(selectedFile);
-    fileReader.onload = (event) => {
-      // console.log(event);
-      let binaryData = event.target?.result;
-      let workbook = XLSX.read(binaryData, { type: 'binary' });
-      workbook.SheetNames.forEach(sheet => {
-        const data = XLSX.utils.sheet_to_json(workbook.Sheets[sheet])
-        console.log('CONSOL DE DATA', data);
-        this.convertJson = JSON.stringify(data, undefined, 4)
-      })
-
-      this.avayaUpload.uploadJson(this.convertJson).subscribe(resp => {
-        console.warn('enviamos al servidor', resp);
-      }, (err) => this.toast.error(`${err}`, 'Thanos'))
+    onFileSelected(event: any): void {
+      const file = event.target.files[0];
+      this.fileToUpload = file;
     }
-  }
-}
 
+
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('file', this.fileToUpload, this.fileToUpload.name);
+    this.http.post<any>('http://localhost:3000/times', formData).subscribe(
+      (res) => {
+        console.log(res);
+        this.successMessage = 'Archivo subido exitosamente';
+        this.errorMessage;
+      },
+      (error) => {
+        console.log(error);
+        this.successMessage;
+        this.errorMessage = 'Ocurrió un error al subir el archivo';
+        console.log(this.errorMessage);
+        
+      }
+    );
+  }
+  }
 
 

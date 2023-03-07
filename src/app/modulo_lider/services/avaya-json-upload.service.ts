@@ -1,20 +1,31 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { catchError, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environment/environment';
+import * as Papa from 'papaparse';
 
 
-const base_url = environment.base_url;
 
 @Injectable({
   providedIn: 'root'
 })
 export class AvayaJsonUploadService {
+  private base_url = 'http://localhost:3000/times';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    ) { }
 
-  uploadJson(convertJson: any){
-    console.warn('desde el servicio',  convertJson);
-    return this.httpClient.post(`${ base_url }/times`, convertJson);
+
+
+  uploadJson(file: FormData) {
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+    return this.http.post<any>(this.base_url, file, { headers }).pipe(
+      catchError((error: HttpErrorResponse) => {
+        return throwError(error.message || 'Server error');
+      })
+    );
   }
 }
 

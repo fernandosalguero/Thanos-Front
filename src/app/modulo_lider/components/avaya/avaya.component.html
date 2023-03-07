@@ -1,12 +1,18 @@
 <section class="layout">
-    <div> <h2>Logueo </h2></div>
+    <div>
+        <h2>Logueo </h2>
+    </div>
     <!-- <div></div> -->
+
     <div class="grow1">
-        <form >
-            <input type="file" class="inputFile" accept=".csv" (change)="fileUpload($event)">
-        </form>
+        <form (submit)="onSubmit()">
+            <input type="file" #fileInput accept=".csv" (change)="onFileSelected($event)">
+            <button type="submit" [disabled]="!fileToUpload">Enviar</button>
+          </form>
+          <div *ngIf="successMessage">{{ successMessage }}</div>
+          <div *ngIf="errorMessage">{{ errorMessage }}</div>
     </div>
 
-    
- 
-  </section>
+
+
+</section>
