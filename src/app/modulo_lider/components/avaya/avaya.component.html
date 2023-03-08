@@ -5,14 +5,8 @@
     <!-- <div></div> -->
 
     <div class="grow1">
-        <form (submit)="onSubmit()">
-            <input type="file" #fileInput accept=".csv" (change)="onFileSelected($event)">
-            <button type="submit" [disabled]="!fileToUpload">Enviar</button>
-          </form>
-          <div *ngIf="successMessage">{{ successMessage }}</div>
-          <div *ngIf="errorMessage">{{ errorMessage }}</div>
+        <input type="file" (change)="onFileSelected($event.target)">
+
     </div>
-
-
 
 </section>
