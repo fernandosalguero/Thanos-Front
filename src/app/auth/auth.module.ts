@@ -9,12 +9,14 @@ import { AngularMaterialModule } from '../shared/angular-material/angular-materi
 // COMPONENTES
 import { LoginComponent } from './components/login/login.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { BackgroundComponent } from './components/background/background.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    FooterComponent
+    FooterComponent,
+    BackgroundComponent
   ],
   imports: [
     CommonModule,

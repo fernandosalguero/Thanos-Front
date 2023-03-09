@@ -27,43 +27,43 @@ export class LoginComponent {
     })
   }
 
-  //  boton de ingreso //TODO funcion de login y redireccionamiento segun rol
+  //  boton de ingreso
   login() {
-    // console.log('Tomamos los datos del formulario', this.loginForm.value);
     this.loginService.loginUsuario(this.loginForm.value)
-    .subscribe(resp => {
-      // console.log(resp);
+      .subscribe(resp => {
+        // almacenamos en el local Storage el roll del usuario para proteger las rutas
+        this.dataHttp = resp;
+        localStorage.setItem('rol', this.dataHttp.user.rol)
 
-      // almacenamos en el local Storage el roll del usuario para proteger las rutas
-      this.dataHttp = resp;
-      localStorage.setItem('rol', this.dataHttp.user.rol)
+        // redireccionamos al modulo correspondiente segun el rol del usuario
+        if (this.dataHttp.user.rol === "superAdminThanos") {
+          this.router.navigate(['/sa/dashboard'])
+          this.swal.bienvenidoSuperAdmin()
 
-      // redireccionamos al modulo correspondiente segun el rol del usuario
-      if (this.dataHttp.user.rol === "superAdminThanos") {
-        this.router.navigate(['/sa/dashboard'])
-         this.swal.bienvenidoSuperAdmin()
-      }  else if (this.dataHttp.user.rol === "agente"){
-        this.router.navigate(['/agente'])
-        this.swal.bienvenidoAgente()
-      } else if ( this.dataHttp.user.rol === "analista"){
-        this.router.navigate(['/analistas/monitoreo'])
-        this.swal.bienvenidoAnalista()
-      } else if ( this.dataHttp.user.rol === "lider"){
-        this.router.navigate(['/lider/dashboard'])
-        this.swal.bienvenidoLider()
-      } else if ( this.dataHttp.user.rol === "bo"){
-        this.router.navigate(['/bo'])
-        this.swal.bienvenidoBO()
-      } else if ( this.dataHttp.user.rol === "jefe"){
-        this.router.navigate(['/jefe'])
-        this.swal.bienvenidoJefe()
-      }
+        } else if (this.dataHttp.user.rol === "agente") {
+          this.router.navigate(['/agente'])
+          this.swal.bienvenidoAgente()
 
-    }, (err) => {
-      // console.log('mensaje de error del error', err.error.message);
-      Swal.fire('Error', err.error.message, 'error');
-      
-    })
+        } else if (this.dataHttp.user.rol === "analista") {
+          this.router.navigate(['/analistas/monitoreo'])
+          this.swal.bienvenidoAnalista()
+
+        } else if (this.dataHttp.user.rol === "lider") {
+          this.router.navigate(['/lider/dashboard'])
+          this.swal.bienvenidoLider()
+
+        } else if (this.dataHttp.user.rol === "bo") {
+          this.router.navigate(['/bo'])
+          this.swal.bienvenidoBO()
+
+        } else if (this.dataHttp.user.rol === "jefe") {
+          this.router.navigate(['/jefe'])
+          this.swal.bienvenidoJefe()
+        }
+      }, (err) => {
+        Swal.fire('Error', err.error.message, 'error');
+
+      })
   }
 
 
