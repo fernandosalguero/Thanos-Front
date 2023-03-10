@@ -4,4 +4,5 @@ export class AltaUsuario {
     rol?: string;
     lider?: string;
     jefe?: string;
+    avayaid?: number;
 }

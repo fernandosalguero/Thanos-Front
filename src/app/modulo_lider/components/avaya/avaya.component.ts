@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AvayaJsonUploadService } from '../../services/avaya-json-upload.service';
 
-
 @Component({
   selector: 'app-avaya',
   templateUrl: './avaya.component.html',
@@ -15,15 +14,12 @@ export class AvayaComponent {
 
   ) { }
 
-  
-
-  onFileSelected(eventTarget: EventTarget | null): void {
+    onFileSelected(eventTarget: EventTarget | null): void {
     if (eventTarget instanceof HTMLInputElement) {
       const file = eventTarget.files?.[0];
       this.avayaService.processCsv(file);
     }
   }
-
 }
 
 

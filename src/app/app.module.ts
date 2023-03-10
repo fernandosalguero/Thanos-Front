@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { SuperAdminModule } from './modulo_super_admin/super-admin.module';
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    SuperAdminModule,
+    
 
   ],
   providers: [],

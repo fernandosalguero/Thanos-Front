@@ -18,6 +18,7 @@ export class AltaUsuariosComponent {
     rol: ['', Validators.required],
     lider: [''],
     jefe: ['', Validators.required],
+    avayaid: ['', Validators.required]
   })
   
 
@@ -29,13 +30,14 @@ export class AltaUsuariosComponent {
 
   ) {}
 
-  onSubmit(){
-    // console.log('BOTON ON SUBMIT DE ALTA USUARIOS',this.frmAltaAgente.value); 
-    this.altaService.altaAgente(this.frmAltaAgente.value)
-    .subscribe( resp => {
-      console.log('RESPUESTA DEL SERVIDOR', resp);
-    }, (err) => this.toast.error(`${err}`, 'Thanos'))    
-  }
+    onSubmit(){
+      const file = this.frmAltaAgente.value
+      this.altaService.altaAgente(file)
+    }
+
+    
+
+
 
 }
 

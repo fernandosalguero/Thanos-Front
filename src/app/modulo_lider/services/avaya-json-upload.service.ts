@@ -3,10 +3,6 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environment/environment';
 import { ToastrService } from 'ngx-toastr';
 
-// TABLA ANGULAR MATERIAL
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 
 const base_url = environment.base_url;
 @Injectable({
@@ -42,17 +38,17 @@ export class AvayaJsonUploadService {
           json.push(obj);
         }
   
-        console.log(json);
+        // console.log(json);
   
         // Enviar los datos al backend
         this.http.post(`${ base_url }/times`, json).subscribe(
           (response) => {
             this.toast.success(`Datos guardados correctamente`, '¡Genial!')
-            console.log('Datos enviados al backend');
+            // console.log('Datos enviados al backend');
           },
           (error) => {
             this.toast.error(error.error.message, '¡Upsss!')
-            console.error('Error al enviar datos al backend', error);
+            // console.error('Error al enviar datos al backend', error);
           }
         );
       };
