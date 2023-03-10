@@ -1,1 +1,3 @@
-PUTO EL QUE LEE
+Eliminar librerias que no se utilizan
+>depcheck 
+>npm uninstall <paquete>

@@ -1,4 +1,4 @@
-export interface UploadSCVInterface {
+export interface AvayaTimesInterface {
     agente: string;
     avayaID: number;
     extencion: number;

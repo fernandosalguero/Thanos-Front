@@ -3,6 +3,11 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environment/environment';
 import { ToastrService } from 'ngx-toastr';
 
+// TABLA ANGULAR MATERIAL
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+
 const base_url = environment.base_url;
 @Injectable({
   providedIn: 'root'
@@ -57,6 +62,7 @@ export class AvayaJsonUploadService {
   private processHeader(header: string): string {
     return header.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
   }
+
 
 
 
