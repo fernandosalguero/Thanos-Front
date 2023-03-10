@@ -3,7 +3,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AltaUsuarioService } from '../../service/alta-usuario.service';
-
+import {MatDialog} from '@angular/material/dialog';
+import { DialogAltaUsuariosComponent } from '../../dialog/dialog-alta-usuarios/dialog-alta-usuarios.component';
 
 @Component({
   selector: 'app-alta-usuarios',
@@ -12,30 +13,21 @@ import { AltaUsuarioService } from '../../service/alta-usuario.service';
 })
 export class AltaUsuariosComponent {
 
-  frmAltaAgente = this.formBuilder.group({
-    dni: ['', Validators.required],
-    password: ['', Validators.required],
-    rol: ['', Validators.required],
-    lider: [''],
-    jefe: ['', Validators.required],
-    avayaid: ['', Validators.required]
-  })
+
   
 
   constructor(
     private formBuilder: FormBuilder,
-    private altaService: AltaUsuarioService,
-    private router: Router,
-    private toast: ToastrService
-
+    private dialog: MatDialog,
   ) {}
+  
 
-    onSubmit(){
-      const file = this.frmAltaAgente.value
-      this.altaService.altaAgente(file)
+    openDialog(){
+      this.dialog.open(DialogAltaUsuariosComponent, {
+        width: '70%'
+      });
+  
     }
-
-    
 
 
 

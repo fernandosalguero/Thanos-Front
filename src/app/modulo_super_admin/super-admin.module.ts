@@ -10,6 +10,7 @@ import { AngularMaterialModule } from '../shared/angular-material/angular-materi
 import { DashboardSAComponent } from './components/dashboard-sa/dashboard-sa.component';
 import { SugerenciasRecibidasComponent } from './components/sugerencias-recibidas/sugerencias-recibidas.component';
 import { ToastrModule } from 'ngx-toastr';
+import { DialogAltaUsuariosComponent } from './dialog/dialog-alta-usuarios/dialog-alta-usuarios.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ToastrModule } from 'ngx-toastr';
     ListadoUsuariosComponent,
     HomeComponentSA,
     DashboardSAComponent,
-    SugerenciasRecibidasComponent
+    SugerenciasRecibidasComponent,
+    DialogAltaUsuariosComponent
   ],
   imports: [
     CommonModule,

@@ -1,53 +1,17 @@
-<section>
-  <h2>Nuevo Agente</h2>
+<section class="layout">
+  <!-- Formulario de creación -->
+  <p>
+    <mat-toolbar color="primary">
+      <span>Usuarios Thanos</span>
+      <span class="tolbar"></span>
+      <button mat-raised-button color="accent" (click)="openDialog()">Agregar usuario</button>
+    </mat-toolbar>
+  </p>
+  
+  <!-- tabla que muestra los registros realizados -->
+  <div>
 
-  <form class="layout" [formGroup]="frmAltaAgente" (ngSubmit)="onSubmit()">
-    <mat-form-field class="example-full-width">
-      <mat-label>DNI</mat-label>
-      <input matInput type="number" formControlName="dni">
-    </mat-form-field>
-
-    <mat-form-field class="example-full-width">
-      <mat-label>Contraseña</mat-label>
-      <input matInput formControlName="password">
-    </mat-form-field>
-
-    <mat-form-field class="example-full-width">
-      <mat-label>AvayaID</mat-label>
-      <input matInput type="number" formControlName="avayaid">
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Rol</mat-label>
-      <mat-select formControlName="rol">
-        <mat-option value="agente">Agente</mat-option>
-        <mat-option value="analista">Analistas</mat-option>
-        <mat-option value="lider">Lider</mat-option>
-        <mat-option value="jefe">Jefe</mat-option>
-        <mat-option value="bo">BO</mat-option>
-        <mat-option value="superAdminThanos">Super Admin</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Lider</mat-label>
-      <mat-select formControlName="lider">
-        <mat-option value="florencia_sarmiento">Florencia Sarmiento</mat-option>
-        <mat-option value="ignacio_corica">Ignacio Corica</mat-option>
-        <mat-option value="romanela_lobos">Romanela Lobos</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Jefe</mat-label>
-      <mat-select formControlName="jefe">
-        <mat-option value="analia_velazquez">Analia Velazquez</mat-option>
-        <mat-option value="tamara_salas">Tamara Salas</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <button mat-raised-button color="primary" class="boton_agregar">Agregar</button>
-  </form>
+  </div>
 
 
 </section>

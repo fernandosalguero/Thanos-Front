@@ -17,7 +17,7 @@ export class AltaUsuarioService {
 
   altaAgente(frmAltaAgente: any) { //TODO: Hay que ver la respuesta sel servidor para identificar porque no me muestra el mensaje de error
     this.httpClient.post(`${base_url}/auth/register`, frmAltaAgente).subscribe(
-      (data) => {
+     (data) => {
         console.log('DATA', data);
         this.toastr.success('Registro exitoso', 'Éxito');
       },
@@ -25,6 +25,11 @@ export class AltaUsuarioService {
         console.error(error.message, error);
       }
     );
+  }
+
+
+  getAgentes(){
+    return this.httpClient.get<any>(`${base_url}/auth/mostrarAgente`)
   }
 
 

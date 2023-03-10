@@ -1,4 +1,14 @@
 .layout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tolbar {
+  flex: 1 1 auto;
+}
+
+.formu {
   width: 100%;
 
   display: flex;
@@ -10,4 +20,15 @@
 
 .boton_agregar{
   width: 100%;
+}
+
+/* propiedades css de la tabla */
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+  overflow: auto;
 }
